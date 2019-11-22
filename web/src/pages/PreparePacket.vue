@@ -91,7 +91,7 @@ export default {
   },
   computed: {
     validated () {
-      if (this.form.amount && this.form.shares && this.selectedAsset && this.form.shares >= 1 && this.form.shares <= packetMaxLimit) {
+      if (this.form.amount && this.form.shares && this.selectedAsset && this.form.shares >= 1 && this.form.shares <= this.participantsCount) {
         return true
       }
       return false
