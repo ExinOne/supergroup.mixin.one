@@ -59,6 +59,7 @@ type Config struct {
 		LimitMessageNumber                         int      `yaml:"limit_message_number"`
 		DetectQRCodeEnabled                        bool     `yaml:"detect_image"`
 		DetectLinkEnabled                          bool     `yaml:"detect_link"`
+		DetectQuestEnabled                         bool     `yaml:"detect_quest"`
 		KeywordReplyEnable                         bool     `yaml:"keyword_reply_enable"`
 		ImmediateDeleteExpiredDistributedMsgEnable bool     `yaml:"immediate_delete_expired_distributed_msg_enable"`
 		WhiteList                                  []string `yaml:"white_list"`

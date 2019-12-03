@@ -50,6 +50,22 @@ func loopPendingMessages(ctx context.Context) {
 						continue
 					}
 				}
+				if config.AppConfig.System.DetectQuestEnabled && message.Category == "PLAIN_TEXT" {
+					data, err := base64.StdEncoding.DecodeString(message.Data)
+					if err != nil {
+						session.Logger(ctx).Errorf("CheckQuest ERROR: %+v", err)
+					}
+					if b, err := interceptors.CheckQuest(ctx, data); b {
+						if err != nil {
+							session.Logger(ctx).Errorf("CheckQuest ERROR: %+v", err)
+						}
+						if err := message.Leapfrog(ctx, "Message contains quest"); err != nil {
+							time.Sleep(500 * time.Millisecond)
+							session.Logger(ctx).Errorf("PendingMessages ERROR: %+v", err)
+						}
+						continue
+					}
+				}
 				if config.AppConfig.System.DetectQRCodeEnabled && message.Category == "PLAIN_IMAGE" {
 					if b, reason := validateMessage(ctx, message); !b {
 						if err := message.Leapfrog(ctx, reason); err != nil {

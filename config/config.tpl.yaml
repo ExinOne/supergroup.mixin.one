@@ -23,6 +23,7 @@ system:
   limit_message_number:                            0 # number: 5 60s 5 条
   detect_image:                                    false
   detect_link:                                     false
+  detect_quest:                                    false
   keyword_reply_enable:                            false
   immediate_delete_expired_distributed_msg_enable: false
   white_list:
