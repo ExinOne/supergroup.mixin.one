@@ -77,7 +77,7 @@ func (current *User) Prepare(ctx context.Context) (int64, error) {
 }
 
 func (current *User) CreatePacket(ctx context.Context, assetId string, amount number.Decimal, totalCount int64, greeting string) (*Packet, error) {
-	if !current.isAdmin() {
+	if !current.isAdmin() && !config.AppConfig.System.AllowPacketWhileMute {
 		b, err := ReadProhibitedProperty(ctx)
 		if err != nil {
 			return nil, err

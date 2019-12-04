@@ -24,6 +24,7 @@ system:
   detect_image:                                    false
   detect_link:                                     false
   detect_quest:                                    false
+  allow_packet_while_mute:                         false
   keyword_reply_enable:                            false
   immediate_delete_expired_distributed_msg_enable: false
   white_list:
