@@ -60,6 +60,7 @@ type Config struct {
 		DetectQRCodeEnabled                        bool     `yaml:"detect_image"`
 		DetectLinkEnabled                          bool     `yaml:"detect_link"`
 		DetectQuestEnabled                         bool     `yaml:"detect_quest"`
+		AllowPacketWhileMute                       bool     `yaml:"allow_packet_while_mute"`
 		KeywordReplyEnable                         bool     `yaml:"keyword_reply_enable"`
 		ImmediateDeleteExpiredDistributedMsgEnable bool     `yaml:"immediate_delete_expired_distributed_msg_enable"`
 		WhiteList                                  []string `yaml:"white_list"`
